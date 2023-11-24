@@ -1,7 +1,12 @@
 import "./App.css";
+import { SidePanel } from "features/components/SidePanel";
 
 function App() {
-  return <>asdasd</>;
+  return (
+    <>
+      <SidePanel />
+    </>
+  );
 }
 
 export default App;
