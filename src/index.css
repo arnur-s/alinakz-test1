@@ -1,0 +1,7 @@
+html {
+  font-size: 87.5%; /* (14px / 16px) * 100% = 87.5% */
+}
+
+body {
+  background-color: #e9f5ff !important;
+}
