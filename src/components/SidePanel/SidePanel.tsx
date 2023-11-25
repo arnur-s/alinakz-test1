@@ -9,8 +9,7 @@ import {
 } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import MenuIcon from "@mui/icons-material/Menu";
-
-import { Logo } from "features/components/Logo";
+import { Logo } from "components/Logo";
 import {
   StyledToolBar,
   StyledLogoBox,
@@ -20,6 +19,8 @@ import {
   StyledDrawer,
 } from "./styles";
 import { menu } from ".";
+import { Link } from "react-router-dom";
+import { Icon } from "../Icon";
 
 const DRAWER_WIDTH = 233;
 
@@ -56,26 +57,28 @@ export const SidePanel = () => {
           </StyledDrawerHeader>
           <List>
             {menu.map((item) => (
-              <ListItem key={item.id} disablePadding sx={{ display: "block" }}>
-                <StyledListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                  }}
-                >
-                  <StyledListItemIcon
+              <Link key={item.id} to={item.path}>
+                <ListItem disablePadding sx={{ display: "block" }}>
+                  <StyledListItemButton
                     sx={{
-                      justifyContent: "center",
+                      minHeight: 48,
+                      justifyContent: open ? "initial" : "center",
                     }}
                   >
-                    <img src={item.icon} alt={item.name} />
-                  </StyledListItemIcon>
-                  <ListItemText
-                    sx={{ opacity: open ? 1 : 0 }}
-                    primary={item.name}
-                  />
-                </StyledListItemButton>
-              </ListItem>
+                    <StyledListItemIcon
+                      sx={{
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Icon src={item.icon} alt={item.name} />
+                    </StyledListItemIcon>
+                    <ListItemText
+                      sx={{ opacity: open ? 1 : 0 }}
+                      primary={item.name}
+                    />
+                  </StyledListItemButton>
+                </ListItem>
+              </Link>
             ))}
           </List>
         </StyledDrawer>
@@ -102,14 +105,16 @@ export const SidePanel = () => {
             </StyledToolBar>
             <List>
               {menu.map((item) => (
-                <ListItem key={item.id} disablePadding>
-                  <StyledListItemButton>
-                    <StyledListItemIcon>
-                      <img src={item.icon} alt={item.name} />
-                    </StyledListItemIcon>
-                    <ListItemText primary={item.name} />
-                  </StyledListItemButton>
-                </ListItem>
+                <Link key={item.id} to={item.path}>
+                  <ListItem disablePadding>
+                    <StyledListItemButton>
+                      <StyledListItemIcon>
+                        <Icon src={item.icon} alt={item.name} />
+                      </StyledListItemIcon>
+                      <ListItemText primary={item.name} />
+                    </StyledListItemButton>
+                  </ListItem>
+                </Link>
               ))}
             </List>
           </StyledDrawer>

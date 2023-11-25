@@ -1,11 +1,11 @@
-import "./App.css";
-import { SidePanel } from "features/components/SidePanel";
+import { Outlet } from "react-router-dom";
+import { Layout } from "components/Layout";
 
 function App() {
   return (
-    <>
-      <SidePanel />
-    </>
+    <Layout>
+      <Outlet />
+    </Layout>
   );
 }
 
