@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from "react";
 import { SidePanel } from "../SidePanel";
-import { StyledBox, StyledDivColumn } from "./styles";
+import { StyledBox, StyledDivColumn, StyledMain } from "./styles";
 import { TopBar } from "../TopBar";
 
 export const Layout: FC<PropsWithChildren> = (props) => {
@@ -12,7 +12,7 @@ export const Layout: FC<PropsWithChildren> = (props) => {
 
       <StyledDivColumn>
         <TopBar />
-        <main>{props.children}</main>
+        <StyledMain>{props.children}</StyledMain>
       </StyledDivColumn>
     </StyledBox>
   );

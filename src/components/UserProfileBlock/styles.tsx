@@ -9,7 +9,7 @@ export const StyledDivRow = styled("div")<{ gap: number }>(({ gap }) => ({
 
 export const StyledTypography = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.main,
-  fontSize: 16,
+  fontSize: "1.1429rem",
   fontWeight: 400,
   lineHeight: "19.36px",
 }));

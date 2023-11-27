@@ -12,8 +12,26 @@ body,
   height: 100%;
 }
 
+#root {
+  overflow-x: hidden;
+}
+
 html {
-  font-size: 87.5%; /* (14px / 16px) * 100% = 87.5% */
+  font-size: 14px;
+}
+
+/* Smaller font size for medium screens (e.g., tablets) */
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 10px; /* Adjust as needed */
+  }
+}
+
+/* Smaller font size for large screens (e.g., small laptops) */
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 12px; /* Adjust as needed */
+  }
 }
 
 a {
