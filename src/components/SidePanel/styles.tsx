@@ -6,8 +6,9 @@ import {
   Drawer,
 } from "@mui/material";
 import { styled, Theme, CSSObject } from "@mui/material/styles";
+import { NavLink, NavLinkProps } from "react-router-dom";
 
-const DRAWER_WIDTH = 233;
+const DRAWER_WIDTH = "100vw";
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: DRAWER_WIDTH,
@@ -40,15 +41,22 @@ export const StyledLogoBox = styled(Box)(() => ({
   marginBottom: 10,
 }));
 
-export const StyledListItemIcon = styled(ListItemIcon)(() => ({
-  minWidth: 32,
-}));
+export const StyledListItemIcon = styled(ListItemIcon)<{ open: boolean }>(
+  ({ open }) => ({
+    minWidth: "unset",
+    marginRight: open ? 12 : 0,
+  })
+);
 
-export const StyledListItemButton = styled(ListItemButton)(() => ({
-  paddingLeft: 20,
-  borderTopRightRadius: 30,
-  borderBottomRightRadius: 30,
-}));
+export const StyledListItemButton = styled(ListItemButton)<{ open: boolean }>(
+  ({ open }) => ({
+    paddingLeft: 20,
+    borderTopRightRadius: 30,
+    borderBottomRightRadius: 30,
+    minHeight: 48,
+    justifyContent: open ? "initial" : "center",
+  })
+);
 
 export const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -86,3 +94,24 @@ export const StyledDrawerHeader = styled(DrawerHeader)<{ open: boolean }>(
         };
   }
 );
+
+export const StyledNavLink = styled((props: NavLinkProps) => (
+  <NavLink {...props} />
+))(({ theme }) => ({
+  li: {
+    borderTopRightRadius: 12,
+    borderBottomRightRadius: 12,
+
+    transition: theme.transitions.create("all", {
+      easing: theme.transitions.easing.easeInOut,
+      duration: theme.transitions.duration.standard,
+    }),
+  },
+
+  "&.active": {
+    color: theme.palette.primary.light,
+    li: {
+      backgroundColor: theme.palette.primary.main,
+    },
+  },
+}));

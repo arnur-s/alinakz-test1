@@ -5,4 +5,5 @@ export const StyledDivRow = styled("div")(() => ({
   justifyContent: "space-between",
   alignItems: "center",
   height: 48,
+  marginBottom: 24,
 }));

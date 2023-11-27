@@ -9,5 +9,9 @@ export const StyledBox = styled(Box)(({ theme }) => ({
 
 export const StyledDivColumn = styled("div")(() => ({
   width: "100%",
-  padding: "32px 50px 50px 50px",
+  padding: "2.2858rem 3.5715rem 3.5715rem 3.5715rem",
+}));
+
+export const StyledMain = styled("main")(() => ({
+  height: "calc(100% - 3.5715rem - 2.2858rem)",
 }));
